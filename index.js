@@ -45,7 +45,7 @@ Tag.belongsToMany(Article, {
 
 // Many to many relation between article and category
 Article.belongsToMany(Category, {
-  through: 'CategoryList',
+  through: 'ArticleList',
   uniqueKey: false,
   timestamps: false,
 });
