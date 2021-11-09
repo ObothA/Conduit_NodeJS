@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "711d5427-e5f3-48db-bc12-ee686ea0b40e",
+		"name": "Kanzu Code Problem Solving",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sign Up",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": {\n        \"username\": \"oboth\",\n        \"email\": \"oboth@oboth\",\n        \"password\": \"test-pass\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Article without categories",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"article\" : {\n        \"title\": \"Article1\",\n        \"body\": \"Body of article 1\",\n        \"description\": \"Information about one.\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/articles/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"articles",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Article with category and no category description",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Token {{TOKEN}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"article\" : {\n        \"title\": \"article 2\",\n        \"body\": \"Body of article 2\",\n        \"description\": \"Article 2 has information about 2\",\n        \"categoryList\": [\n            {\n                \"name\": \"New\"\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/articles/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"articles",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create article with 2 categories",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"article\" : {\n        \"title\": \"Two\",\n        \"body\": \"Body of article 3\",\n        \"description\": \"Information about 3\",\n        \"categoryList\": [\n            {\n                \"name\": \"Cars\"\n            },\n            {\n                \"name\": \"Food\",\n                \"description\": \"This is for food stuffs\"\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/articles/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"articles",
+						""
+					]
+				},
+				"description": "Second category has a description."
+			},
+			"response": []
+		}
+	]
+}
